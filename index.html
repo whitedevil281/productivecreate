@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="scss/main.css" />
+  <title>Productivity</title>
+</head>
+
+<body>
+  <div class="blur-overlay"></div>
+  <main>
+    <div class="chnagetheme">
+      <button id="changetheme">Change Theme</button>
+    </div>
+    <section class="section-view1">
+      <nav>
+        <div class="nav">
+          <h1>Productivity Dashboard</h1>
+        </div>
+      </nav>
+      <div class="view1 box-hover-animation z-index-3">
+        <div class="view1-left">
+          <div class="date">4 May 2025</div>
+          <div class="time">
+            <div class="day">Sunday,</div>
+            <div class="time-data">12:29:35 AM</div>
+          </div>
+          <div class="line"></div>
+          <div class="city">Bhopal</div>
+        </div>
+        <div class="view1-right">
+          <div class="view1-right-top">
+            <div class="temp">20°C</div>
+            <div class="weather">Sunny</div>
+          </div>
+          <div class="view1-right-bottom">
+            <div class="humidity weatherinfo">Humidity: 50%</div>
+            <div class="wind weatherinfo">Wind: 10 km/h</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-view2">
+      <div class="box-main box-hover-animation z-index-3" id="todo-mainbox">
+        <div class="box-down" id="todo"></div>
+        <div class="heading-box">
+          <div class="heading">To-Do List</div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="box-main box-hover-animation z-index-3" id="dailyplanner-mainbox">
+        <div class="box-down" id="dailyplanner"></div>
+        <div class="heading-box">
+          <div class="heading">Daily Planner</div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="box-main box-hover-animation z-index-3" id="motivation-mainbox">
+        <div class="box-down" id="motivation"></div>
+        <div class="heading-box">
+          <div class="heading">Motivation</div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="box-main box-hover-animation z-index-3" id="pomodoro-mainbox">
+        <div class="box-down" id="pomodoro"></div>
+        <div class="heading-box">
+          <div class="heading" id="pomodoro-heading">Pomodoro</div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="box-main box-hover-animation z-index-3" id="kanbanboard-mainbox">
+        <div class="box-down" id="kanbanboard"></div>
+        <div class="heading-box">
+          <div class="heading">Kanban Board</div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+    <div class="box-anchor z-index-3 anchor-todo-bg" id="anchor-box-todo" data-original-id="anchor-box-todo">
+      <div class="todoapp">
+        <h2 class="todo-title">To-Do</h2>
+        <div class="todo-input-container">
+          <input type="text" id="todo-input" placeholder="What do you need to do?" />
+          <label class="todo-imp-label">
+            <input type="checkbox" id="todo-imp-checkbox" />
+            <span>Mark as Important</span>
+          </label>
+          <button id="todo-add-btn">+</button>
+        </div>
+
+        <ul class="todo-list">
+         
+        </ul>
+      </div>
+
+      <button class="exitbutton" id="todo-exitbutton">X</button>
+    </div>
+    </div>
+    <div class="box-anchor z-index-3 anchor-dailyplanner-bg" id="anchor-box-dailyplanner"
+      data-original-id="anchor-box-dailyplanner">
+
+      <div class="dailyplannerapp">
+
+  
+        <h1>Plan Your Day To be more Productive</h1>
+        <div class="table-planner">
+          <div class="plan-box">
+            <div class="time">6:00 - 7:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">7:00 - 8:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">8:00 - 9:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">9:00 - 10:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">10:00 - 11:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">11:00 - 12:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">12:00 - 13:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">13:00 - 14:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">14:00 - 15:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">15:00 - 16:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">16:00 - 17:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">17:00 - 18:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">18:00 - 19:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">19:00 - 20:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">20:00 - 21:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">21:00 - 22:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">22:00 - 23:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+          <div class="plan-box">
+            <div class="time">23:00 - 24:00</div>
+            <input type="text" name="plan" id="plan" placeholder="...">
+          </div>
+
+        </div>
+       </div>
+
+      <button class="exitbutton" id="dailyplanner-exitbutton">X</button>
+    </div>
+    <div class="box-anchor z-index-3 anchor-motivation-bg" id="anchor-box-motivation"
+      data-original-id="anchor-box-motivation">
+
+      <div class="motivationapp">
+        <h1 class="motivation-title">Motivation</h1>
+        <div class="motivation-content">
+          <p id="motivation-text"></p>
+          <p id="author-name"></p>
+        </div>
+      </div>
+      <button class="exitbutton" id="motivation-exitbutton">X</button>
+    </div>
+    <div class="box-anchor z-index-3 anchor-pomodoro-bg" id="anchor-box-pomodoro"
+      data-original-id="anchor-box-pomodoro">
+      <div class="pomodoroapp">
+        <h1 class="pomodoro-title">Pomodoro</h1>
+        <div class="pomodoro-content">
+         <div class="timer-title">Work Session</div>
+         <div class="time"><span id="pomodoro-min">25</span>:<span id="pomodoro-sec">00</span></div>
+         <div class="pomodoro-button">
+          <button id="pomodoro-start">Start</button>
+          <button id="pomodoro-pause">Pause</button>
+          <button id="pomodoro-reset">Reset</button>
+         </div>
+        </div>
+      </div>
+      <button class="exitbutton" id="pomodoro-exitbutton">X</button>
+    </div>
+    <div class="box-anchor z-index-3 anchor-kanbanboard-bg" id="anchor-box-kanbanboard"
+      data-original-id="anchor-box-kanbanboard">
+      <button class="exitbutton" id="kanbanboard-exitbutton">X</button>
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,746 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@property --deg {
+  syntax: "<angle>";
+  initial-value: 480deg;
+  inherits: false;
+}
+@keyframes rotate {
+  from {
+    --deg: 0deg;
+  }
+  to {
+    --deg: 360deg;
+  }
+}
+:root {
+  --primary-bg: #f3f7fc;
+  --secondary-bg: white;
+  --primary-text: #393c4f;
+  --secondary-text: black;
+  --primary-blend: #6366f1;
+}
+
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  scrollbar-width: none;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background-color: var(--primary-bg);
+  width: 100%;
+}
+body .blur-overlay {
+  scrollbar-width: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  transition: opacity 0.2s ease 0.1s;
+  z-index: 3;
+}
+
+main {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  overflow-x: hidden;
+  scroll-snap-stop: always;
+  width: 100%;
+  height: 100vh;
+}
+main .chnagetheme {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  z-index: 2;
+}
+main .chnagetheme button {
+  padding: 0.9rem 1.35rem;
+  background-color: var(--primary-blend);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+main .chnagetheme #changetheme:active {
+  background-color: #4338ca;
+  transform: scale(0.9);
+}
+main .section-view1 {
+  scroll-snap-align: start;
+  margin-bottom: 3.6rem;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main .section-view1 nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 9rem;
+}
+main .section-view1 nav .nav {
+  background: var(--secondary-bg);
+  padding: 1.8rem;
+  border: 2.7px solid var(--secondary-bg);
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 3.6rem 1.8rem 0rem;
+  border-radius: 0.9rem;
+  box-shadow: 6.3px 9px 18px 10.8px rgba(0, 0, 0, 0.203);
+  align-items: center;
+}
+main .section-view1 nav .nav h1 {
+  color: var(--primary-text);
+  font-size: 2.7rem;
+}
+main .section-view1 .view1 {
+  width: 80%;
+  height: 45vh;
+  background: url("../weather.png") content-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  box-shadow: 6.3px 9px 18px 10.8px rgba(0, 0, 0, 0.203);
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+  background-size: cover;
+  background-position: center 80%;
+  display: flex;
+  border: 3.6px solid #ffffff;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.9rem;
+}
+main .section-view1 .view1 .view1-left {
+  margin: 2.7rem;
+}
+main .section-view1 .view1 .view1-left .date {
+  color: var(--primary-text);
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+main .section-view1 .view1 .view1-left .city {
+  color: var(--primary-text);
+  font-size: 2.5rem;
+}
+main .section-view1 .view1 .view1-left .time {
+  color: var(--primary-text);
+  font-weight: bolder;
+  display: flex;
+}
+main .section-view1 .view1 .view1-left .time .time-data {
+  font-size: 3rem;
+  letter-spacing: 0.54rem;
+}
+main .section-view1 .view1 .view1-left .time .day {
+  font-size: 3rem;
+  margin-right: 0.9rem;
+}
+main .section-view1 .view1 .view1-left .line {
+  width: 100%;
+  height: 2.7px;
+  background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  margin: 1.8rem 0rem;
+}
+main .section-view1 .view1 .view1-right {
+  margin: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.7rem;
+}
+main .section-view1 .view1 .view1-right .view1-right-top {
+  text-align: center;
+}
+main .section-view1 .view1 .view1-right .view1-right-top .temp {
+  font-size: 4rem;
+  color: var(--primary-text);
+  font-weight: 400;
+  margin-top: 2rem;
+}
+main .section-view1 .view1 .view1-right .view1-right-top .weather {
+  font-size: 1.35rem;
+  color: var(--primary-text);
+  font-weight: bold;
+}
+main .section-view1 .view1 .view1-right .view1-right-bottom .weatherinfo {
+  color: var(--primary-text);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0.63rem 0rem;
+}
+main .section-view2 {
+  scroll-snap-align: start;
+  anchor-name: --main;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1.8rem;
+}
+main .section-view2 .box-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  box-shadow: 6.3px 9px 18px 10.8px rgba(0, 0, 0, 0.203);
+  border-radius: 0.9rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+main .section-view2 .box-main #dailyplanner {
+  anchor-name: --dailyplanner;
+}
+main .section-view2 .box-main #todo {
+  anchor-name: --todo;
+}
+main .section-view2 .box-main #motivation {
+  anchor-name: --motivation;
+}
+main .section-view2 .box-main #pomodoro {
+  anchor-name: --pomodoro;
+}
+main .section-view2 .box-main #kanbanboard {
+  anchor-name: --kanbanboard;
+}
+main .section-view2 .box-main .box-down {
+  width: 15vw;
+  height: 30vh;
+  border-radius: 0.9rem;
+  border: 2.7px solid transparent;
+  pointer-events: none;
+  margin: 0.9rem;
+}
+main .section-view2 .box-main .heading-box {
+  pointer-events: none;
+  margin: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .section-view2 .box-main .heading-box .line {
+  width: 80%;
+  height: 2.7px;
+  background-color: black;
+}
+main .section-view2 .box-main .heading-box .heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+main section .box-hover-animation:hover {
+  border: 2.7px solid rgba(255, 255, 255, 0);
+  animation-play-state: running !important;
+  transform: scale(1.1);
+}
+
+section:has(.box-hover-animation:hover) .z-index-3 {
+  z-index: 5;
+}
+
+body:has(section .box-hover-animation:hover) .blur-overlay {
+  opacity: 1;
+}
+
+main:has(.box-main:hover) .box-main:not(:hover) {
+  z-index: 0 !important;
+  transform: scale(0.9) !important;
+}
+
+main:has(.box-main:hover) .box-anchor:not(:hover) {
+  z-index: 0 !important;
+  transform: scale(0.9) !important;
+}
+
+main:has(.box-anchor:hover) .box-main:not(:hover) {
+  z-index: 0 !important;
+  transform: scale(0.9) !important;
+}
+
+body:has(.box-anchor:hover) .blur-overlay {
+  opacity: 1;
+}
+
+main:has(.box-anchor:hover) .box-anchor:not(:hover) {
+  z-index: 0 !important;
+  transform: scale(0.9) !important;
+}
+
+main:has(#todo-mainbox:hover) #anchor-box-todo,
+main:has(#dailyplanner-mainbox:hover) #anchor-box-dailyplanner,
+main:has(#motivation-mainbox:hover) #anchor-box-motivation,
+main:has(#pomodoro-mainbox:hover) #anchor-box-pomodoro,
+main:has(#kanbanboard-mainbox:hover) #anchor-box-kanbanboard {
+  animation-play-state: running !important;
+  border: 2.7px solid rgba(255, 255, 255, 0) !important;
+  transform: scale(0.9) !important;
+  z-index: 5 !important;
+}
+
+#anchor-box-todo:hover,
+#anchor-box-dailyplanner:hover,
+#anchor-box-motivation:hover,
+#anchor-box-pomodoro:hover,
+#anchor-box-kanbanboard:hover {
+  animation-play-state: running !important;
+  border: 2.7px solid rgba(255, 255, 255, 0) !important;
+  transform: scale(0.9) !important;
+  z-index: 5 !important;
+}
+
+main:has(#anchor-box-todo:hover) #todo-mainbox {
+  transform: scale(1.1) !important;
+  z-index: 5 !important;
+}
+
+main:has(#anchor-box-dailyplanner:hover) #dailyplanner-mainbox {
+  transform: scale(1.1) !important;
+  z-index: 5 !important;
+}
+
+main:has(#anchor-box-motivation:hover) #motivation-mainbox {
+  transform: scale(1.1) !important;
+  z-index: 5 !important;
+}
+
+main:has(#anchor-box-pomodoro:hover) #pomodoro-mainbox {
+  transform: scale(1.1) !important;
+  z-index: 5 !important;
+}
+
+main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
+  transform: scale(1.1) !important;
+  z-index: 5 !important;
+}
+
+.anchor-todo-bg {
+  background: url("../todo.png") padding-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  background-size: cover;
+  background-position: center;
+  position-anchor: --todo;
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+}
+.anchor-todo-bg .todoapp {
+  transition: all 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  display: none;
+  grid-template-rows: auto auto 1fr;
+  gap: 1rem;
+  color: var(--primary-text);
+  /* ---------- INPUT SECTION ---------- */
+  /* ---------- LIST SECTION ---------- */
+}
+.anchor-todo-bg .todoapp .todo-title {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.anchor-todo-bg .todoapp .todo-input-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 1rem;
+  background: transparent;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  align-items: center;
+}
+.anchor-todo-bg .todoapp .todo-input-container input[type=text] {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  border-radius: 0.8rem;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+}
+.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background 0.2s ease;
+}
+.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label input[type=checkbox] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  accent-color: var(--primary-blend);
+}
+.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  white-space: nowrap;
+}
+.anchor-todo-bg .todoapp .todo-input-container button {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: var(--primary-blend);
+  color: white;
+  transition: transform 0.2s ease;
+}
+.anchor-todo-bg .todoapp .todo-input-container button:active {
+  transform: scale(0.9);
+}
+.anchor-todo-bg .todoapp .todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  gap: 1rem;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  background: transparent;
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  border-radius: 0.9rem;
+  background: var(--primary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item:hover {
+  transform: scale(1.02);
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item.completed {
+  opacity: 0.6;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item.completed .todo-text {
+  text-decoration: line-through;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-text-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-text-wrapper .todo-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-text-wrapper .imp-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-actions button {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.6rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.2s ease;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-actions .edit-btn {
+  background: #22c55e;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-actions .complete-btn {
+  background: #3b82f6;
+}
+.anchor-todo-bg .todoapp .todo-list .todo-item .todo-actions button:active {
+  transform: scale(0.85);
+}
+
+.anchor-dailyplanner-bg {
+  background: url("../dailyplanner.png") padding-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  background-size: cover;
+  background-position: center;
+  position-anchor: --dailyplanner;
+  padding: 4rem;
+}
+.anchor-dailyplanner-bg .dailyplannerapp {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: 100%;
+  display: none;
+}
+.anchor-dailyplanner-bg .dailyplannerapp h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-text);
+  letter-spacing: 0.04em;
+}
+.anchor-dailyplanner-bg .dailyplannerapp .table-planner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: transparent;
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 2rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.anchor-dailyplanner-bg .dailyplannerapp .table-planner .plan-box {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 6rem;
+  border-radius: 0.9rem;
+  background: var(--primary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.anchor-dailyplanner-bg .dailyplannerapp .table-planner .plan-box:hover {
+  transform: scale(1.02);
+}
+.anchor-dailyplanner-bg .dailyplannerapp .table-planner .plan-box .time {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary-text);
+}
+.anchor-dailyplanner-bg .dailyplannerapp .table-planner .plan-box input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+.anchor-motivation-bg {
+  background: url("../motivation.png") padding-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  background-size: cover;
+  background-position: center;
+  position-anchor: --motivation;
+  padding: 4rem;
+}
+.anchor-motivation-bg .motivationapp {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: 100%;
+  display: none;
+}
+.anchor-motivation-bg .motivationapp .motivation-title {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--primary-text);
+}
+.anchor-motivation-bg .motivationapp .motivation-content {
+  background: transparent;
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+.anchor-motivation-bg .motivationapp .motivation-content #motivation-text {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--secondary-text);
+}
+.anchor-motivation-bg .motivationapp .motivation-content #author-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-text);
+}
+
+.anchor-pomodoro-bg {
+  background: url("../pomodoro.png") padding-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  background-position: center;
+  background-size: cover;
+  position-anchor: --pomodoro;
+  padding: 4rem;
+}
+.anchor-pomodoro-bg .pomodoroapp {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: 100%;
+  display: none;
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-title {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--primary-text);
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content {
+  background: transparent;
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .timer-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  border: 2px solid black;
+  padding: 1rem;
+  background-color: var(--secondary-bg);
+  border-radius: 0.9rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .time {
+  font-size: 8rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.927);
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .pomodoro-button {
+  display: flex;
+  gap: 1rem;
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .pomodoro-button button {
+  padding: 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  background: var(--primary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .pomodoro-button button:hover {
+  transform: scale(1.1);
+}
+.anchor-pomodoro-bg .pomodoroapp .pomodoro-content .pomodoro-button button:active {
+  transform: scale(0.98);
+}
+
+.anchor-kanbanboard-bg {
+  background: url("../kanban.png") padding-box, conic-gradient(from var(--deg), white 80%, var(--primary-blend)) border-box;
+  background-size: cover;
+  background-position: center;
+  position-anchor: --kanbanboard;
+}
+
+.box-anchor {
+  transition: all 0.3s linear;
+  border-radius: 0.9rem;
+  border: 2.7px solid #ffffff;
+  box-shadow: 6.3px 9px 18px 2.7px rgba(0, 0, 0, 0.203);
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+  position: absolute;
+  top: anchor(top);
+  left: anchor(left);
+  right: anchor(right);
+  bottom: anchor(bottom);
+}
+
+.fullscreen {
+  border: none !important;
+  border-radius: 0 !important;
+  z-index: 333 !important;
+  pointer-events: auto !important;
+}
+
+main .box-anchor .exitbutton {
+  width: 3rem;
+  height: 3rem;
+  box-shadow: 6.3px 9px 18px 4.5px rgba(0, 0, 0, 0.203);
+  border-radius: 0.9rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  display: flex;
+  pointer-events: auto;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  z-index: 1000;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+main .box-anchor .exitbutton:active {
+  transform: scale(0.9) !important;
+}
+
+/* Disable interactions on background elements when in fullscreen */
+body.has-fullscreen .section-view1,
+body.has-fullscreen .section-view2,
+body.has-fullscreen .box-anchor:not(.fullscreen) {
+  pointer-events: none !important;
+}/*# sourceMappingURL=main.css.map */
