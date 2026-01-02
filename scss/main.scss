@@ -21,11 +21,11 @@
 
 :root {
   --primary-blend: #6366f1;
+  --changetheme-blend: #6366f1;
   --primary-bg: #f3f7fc;
   --secondary-bg: white;
   --primary-text: #393c4f;
   --secondary-text: black;
-  --primary-blend: #6366f1;
   --weatherimg: url("../weather.png");
   --todoimg: url("../todo.png");
   --dailyplannerimg: url("../dailyplanner.png");
@@ -36,6 +36,8 @@
 }
 
 [data-theme="dark"] {
+  --changetheme-blend: #2b3b54b8;
+    --primary-blend: #4f80cfe4;
   --primary-bg: #0f172a;
   --secondary-bg: #2b3b54b8;
   --primary-text: #e2e8f0;
@@ -95,7 +97,7 @@ main {
     z-index: 2;
     button {
       padding: 0.9rem 1.35rem;
-      background-color: var(--primary-blend);
+      background-color: var(--changetheme-blend);
       color: white;
       border: none;
       cursor: pointer;
@@ -1243,10 +1245,10 @@ body.has-fullscreen {
     .section-view1 {
       nav .nav {
         width: 94%;
-        margin-top: 1.5rem;
+        margin-top: 3rem;
 
         h1 {
-          font-size: 1.2rem;
+          font-size: 2rem;
         }
       }
 
@@ -1461,10 +1463,11 @@ body.has-fullscreen {
     }
 
     .section-view1 {
+    
       nav .nav {
         width: 95%;
         padding: 0.8rem;
-        margin-top: 1rem;
+        margin-top: 3rem;
         margin-bottom: 1rem;
 
         h1 {
