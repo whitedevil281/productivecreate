@@ -92,7 +92,7 @@
         </div>
 
         <ul class="todo-list">
-         
+
         </ul>
       </div>
 
@@ -104,7 +104,7 @@
 
       <div class="dailyplannerapp">
 
-  
+
         <h1>Plan Your Day To be more Productive</h1>
         <div class="table-planner">
           <div class="plan-box">
@@ -181,7 +181,7 @@
           </div>
 
         </div>
-       </div>
+      </div>
 
       <button class="exitbutton" id="dailyplanner-exitbutton">X</button>
     </div>
@@ -202,19 +202,90 @@
       <div class="pomodoroapp">
         <h1 class="pomodoro-title">Pomodoro</h1>
         <div class="pomodoro-content">
-         <div class="timer-title">Work Session</div>
-         <div class="time"><span id="pomodoro-min">25</span>:<span id="pomodoro-sec">00</span></div>
-         <div class="pomodoro-button">
-          <button id="pomodoro-start">Start</button>
-          <button id="pomodoro-pause">Pause</button>
-          <button id="pomodoro-reset">Reset</button>
-         </div>
+          <div class="timer-title">Work Session</div>
+          <div class="time"><span id="pomodoro-min">25</span>:<span id="pomodoro-sec">00</span></div>
+          <div class="pomodoro-button">
+            <button id="pomodoro-start">Start</button>
+            <button id="pomodoro-pause">Pause</button>
+            <button id="pomodoro-reset">Reset</button>
+          </div>
         </div>
       </div>
       <button class="exitbutton" id="pomodoro-exitbutton">X</button>
     </div>
     <div class="box-anchor z-index-3 anchor-kanbanboard-bg" id="anchor-box-kanbanboard"
       data-original-id="anchor-box-kanbanboard">
+      <div class="kanbanboardapp">
+        <div class="kanbantaskadd">
+          <div class="boxaddtask">
+            <h1>Add Task</h1>
+            <form action="">
+              <input type="text" name="task" id="task" placeholder="Task">
+              <textarea name="taskdescription" id="taskdescription" placeholder="Task Description"></textarea>
+              <button >Add Task</button>
+            </form>
+          </div>
+        </div>
+        <div class="kanban-top">
+          <h2>Kanban Board</h2>
+          <button id="kanbanboard-addtask">Add Task</button>
+        </div>
+        <section class="board">
+          <div id="kanbantodo" class="task-column">
+            <div class="kanbansectionhead">
+              <h2>To Do</h2>
+              <h2>Count</h2>
+            </div>
+            <div class="kanbanlist">
+              <div draggable="true"  class="kanbantodobox">
+                <h1>Task</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, architecto accusamus officiis numquam quae cumque.</p>
+                <button>Delete</button>
+              </div>
+              <div draggable="true"  class="kanbantodobox">
+                <h1>Task</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, architecto accusamus officiis numquam quae cumque.</p>
+                <button>Delete</button>
+              </div>
+              <div draggable="true"  class="kanbantodobox">
+                <h1>Task</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, architecto accusamus officiis numquam quae cumque.</p>
+                <button>Delete</button>
+              </div>
+              <div draggable="true"  class="kanbantodobox">
+                <h1>Task</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, architecto accusamus officiis numquam quae cumque.</p>
+                <button>Delete</button>
+              </div>
+              <div draggable="true"  class="kanbantodobox">
+                <h1>Task</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, architecto accusamus officiis numquam quae cumque.</p>
+                <button>Delete</button>
+              </div>
+            </div>
+          </div>
+          <div id="progress" class="task-column">
+            <div class="kanbansectionhead">
+              <h2>Progress</h2>
+              <h2>Count</h2>
+            </div>
+            <div class="kanbanlist">
+              <div class="kanbanprogressbox"></div>
+            </div>
+          </div>
+          <div id="done" class="task-column">
+            <div class="kanbansectionhead">
+              <h2>Done</h2>
+              <h2>Count</h2>
+            </div>
+            <div class="kanbanlist">
+              <div class="kanbandonebox">
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
       <button class="exitbutton" id="kanbanboard-exitbutton">X</button>
     </div>
   </main>

@@ -63,6 +63,7 @@ body {
   background-color: var(--primary-bg);
   width: 100%;
   height: 100vh;
+  overflow-y: hidden;
 }
 body .blur-overlay {
   scrollbar-width: none;
@@ -379,7 +380,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   width: 100%;
   height: 100%;
   display: none;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr;
   gap: 1rem;
   color: var(--primary-text);
   /* ---------- INPUT SECTION ---------- */
@@ -387,7 +388,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
 }
 .anchor-todo-bg .todoapp .todo-title {
   text-align: center;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   background: transparent;
@@ -415,7 +416,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   background: var(--primary-bg);
   color: var(--primary-text);
 }
-.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label {
+.anchor-todo-bg .todoapp .todo-input-container + .todo-imp-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -425,16 +426,16 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   background: rgba(255, 255, 255, 0.3);
   transition: background 0.2s ease;
 }
-.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label:hover {
+.anchor-todo-bg .todoapp .todo-input-container + .todo-imp-label:hover {
   background: rgba(255, 255, 255, 0.5);
 }
-.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label input[type=checkbox] {
+.anchor-todo-bg .todoapp .todo-input-container + .todo-imp-label input[type=checkbox] {
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
   accent-color: var(--primary-blend);
 }
-.anchor-todo-bg .todoapp .todo-input-container .todo-imp-label span {
+.anchor-todo-bg .todoapp .todo-input-container + .todo-imp-label span {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--primary-text);
@@ -723,6 +724,201 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   background-size: cover;
   background-position: center;
   position-anchor: --kanbanboard;
+  padding: 2rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp {
+  transition: all 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  display: none;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  position: relative;
+  color: var(--primary-text);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd {
+  display: none;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask {
+  padding: 2rem;
+  background: var(--primary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
+  height: auto;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form input {
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  background: var(--secondary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form textarea {
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 20rem;
+  height: 6rem;
+  color: var(--primary-text);
+  background: var(--secondary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form button {
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  background: var(--secondary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form button:hover {
+  transform: scale(1.1);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanbantaskadd .boxaddtask form button:active {
+  transform: scale(0.98);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanban-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanban-top h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanban-top button {
+  position: absolute;
+  right: 5rem;
+  top: 0rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  background: var(--secondary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanban-top button:hover {
+  transform: scale(1.1);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .kanban-top button:active {
+  transform: scale(0.98);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.9rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column {
+  background: transparent;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 0.8rem;
+  border-radius: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbansectionhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 95%;
+  overflow-y: auto;
+  border-radius: 0.9rem;
+  scrollbar-width: none;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--primary-bg);
+  border-radius: 0.9rem;
+  padding: 0.8rem;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--primary-text);
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button {
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.9rem;
+  border: none;
+  outline: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  background: red;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+  transition: transform 0.2s ease;
+  align-self: flex-end;
+}
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button:active {
+  transform: scale(0.9);
 }
 
 .box-anchor {

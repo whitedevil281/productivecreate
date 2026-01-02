@@ -18,6 +18,7 @@ const startbutton = document.querySelector("#pomodoro-start");
 const pausebutton = document.querySelector("#pomodoro-pause");
 const resetbutton = document.querySelector("#pomodoro-reset");
 const changetheme = document.querySelector("#changetheme");
+const mainbox   = document.querySelector("main");
 
 const anchorboxes = {
   todo: document.querySelector(".anchor-todo-bg"),
@@ -177,7 +178,7 @@ function pomodoroTimerreset(){
     anchor.style.positionAnchor = `--${id}`;
     anchor.id = targetid;
     anchor.classList.remove("fullscreen");
-    document.body.style.overflowY = "scroll";
+    mainbox.style.overflowY = "scroll";
     buttonexit.style.display = "none";
     const app = buttonexit.id.split("-")[0];
     console.log(app + "appexit");
@@ -195,7 +196,7 @@ async function changeAnchor(anchor, id, targetid, buttonexit) {
   try {
     // GOING TO FULLSCREEN
     console.log(anchor, id, targetid);
-    document.body.style.overflowY = "hidden";
+    mainbox.style.overflowY = "hidden";
     document.body.classList.add("has-fullscreen");
     buttonexit.style.display = "block";
     anchor.style.positionAnchor = "--main";
