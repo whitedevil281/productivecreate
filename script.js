@@ -17,6 +17,7 @@ const secpomodoro = document.querySelector("#pomodoro-sec");
 const startbutton = document.querySelector("#pomodoro-start");
 const pausebutton = document.querySelector("#pomodoro-pause");
 const resetbutton = document.querySelector("#pomodoro-reset");
+const changetheme = document.querySelector("#changetheme");
 
 const anchorboxes = {
   todo: document.querySelector(".anchor-todo-bg"),
@@ -430,3 +431,23 @@ todoInput.addEventListener("keypress", (e) => {
 
 // Initialize todo app
 loadTodos();
+
+const root = document.documentElement;
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  root.setAttribute("data-theme", savedTheme);
+}
+
+changetheme.addEventListener("click", () => {
+  const currentTheme = root.getAttribute("data-theme");
+
+  if (currentTheme === "dark") {
+    root.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  } else {
+    root.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+});

@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+  --primary-bg: #0f172a;     /* Deep slate navy-gray for main background – elegant and not pure black */
+  --secondary-bg: #2b3b54b8;   /* Slightly lighter slate for cards/secondary surfaces */
+  --primary-text: #e2e8f0;   /* Soft light gray for main text – high readability */
+  --secondary-text: #94a3b8;
+   --weatherimg : url("../weatherdark.png");
+   --todoimg : url("../tododark.png");
+   --dailyplannerimg : url("../dailyplannerdark.png");
+   --motivationimg : url("../motivationdark.png");
+   --pomodoroimg : url("../pomodorodark.png");
+   --kanbanimg : url("../kanbandark.png");
+    --line-gradient : linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0));
