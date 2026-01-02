@@ -380,7 +380,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   width: 100%;
   height: 100%;
   display: none;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   gap: 1rem;
   color: var(--primary-text);
   /* ---------- INPUT SECTION ---------- */
@@ -732,7 +732,6 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   height: 100%;
   display: none;
   grid-template-rows: auto 1fr;
-  gap: 1rem;
   position: relative;
   color: var(--primary-text);
 }
@@ -858,7 +857,9 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
+  border: 2px solid red;
   border-radius: 0.9rem;
+  height: 100%;
 }
 .anchor-kanbanboard-bg .kanbanboardapp .board .task-column {
   background: transparent;
@@ -870,21 +871,23 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  height: 100%;
 }
 .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbansectionhead {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.7rem;
+  flex-shrink: 0;
 }
 .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  height: 95%;
-  overflow-y: auto;
-  border-radius: 0.9rem;
+  flex: 1;
+  overflow-y: scroll;
   scrollbar-width: none;
+  border-radius: 0.9rem;
 }
 .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox {
   display: flex;
