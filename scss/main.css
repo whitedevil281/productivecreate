@@ -724,7 +724,10 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   background-size: cover;
   background-position: center;
   position-anchor: --kanbanboard;
-  padding: 2rem;
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
 }
 .anchor-kanbanboard-bg .kanbanboardapp {
   transition: all 1s ease-in-out;
@@ -885,8 +888,10 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
-  overflow-y: scroll;
+  height: 5rem !important;
+  overflow-y: auto;
   scrollbar-width: none;
+  border: 2px solid red;
   border-radius: 0.9rem;
 }
 .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox {

@@ -1,18 +1,112 @@
+ .kanban-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      h2{
+        text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      }
+      button{
+       position: absolute;
+       right: 5rem;
+       top: 0rem;
+       padding: 0.9rem 1rem;
+       border-radius: 0.9rem;
+       border: none;
+       outline: none;
+       font-size: 1rem;
+       font-weight: 600;
+       color: var(--primary-text);
+       background: var(--secondary-bg);
+       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+       transition: transform 0.2s ease;
+       &:hover {
+         transform: scale(1.1);
+       }
 
+       &:active {
+         transform: scale(0.98);
+       }
+      }
 
+    }
 
+    
 
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      border: 2px solid red;
+      border-radius: 0.9rem;
+      height: 100%;
+      .task-column {
+         background: transparent;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 0.8rem;
+        border-radius: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        height: 100%;
+        .kanbansectionhead{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.7rem;
+           flex-shrink: 0;
+        }
+        .kanbanlist{
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+         flex: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
 
+          border-radius: 0.9rem;
+        
+         .kanbantodobox{
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          background-color: var(--primary-bg);
+          border-radius: 0.9rem;
+          padding: 0.8rem;
 
+          h1{
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-text);
+          }
+          p{
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--primary-text);
+          }
+          button{
+            padding: 0.7rem 0.9rem;
+            border-radius: 0.9rem;
+            border: none;
+            outline: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            background: red;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
+            transition: transform 0.2s ease;
+            align-self: flex-end;
+            &:active {
+              transform: scale(0.9);
+            }
+          }
+         }
+        }
+      }
 
-  --primary-bg: #0f172a;     /* Deep slate navy-gray for main background – elegant and not pure black */
-  --secondary-bg: #2b3b54b8;   /* Slightly lighter slate for cards/secondary surfaces */
-  --primary-text: #e2e8f0;   /* Soft light gray for main text – high readability */
-  --secondary-text: #94a3b8;
-   --weatherimg : url("../weatherdark.png");
-   --todoimg : url("../tododark.png");
-   --dailyplannerimg : url("../dailyplannerdark.png");
-   --motivationimg : url("../motivationdark.png");
-   --pomodoroimg : url("../pomodorodark.png");
-   --kanbanimg : url("../kanbandark.png");
-    --line-gradient : linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0));
+    }
