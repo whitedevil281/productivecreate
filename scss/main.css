@@ -860,7 +860,6 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
-  border: 2px solid red;
   border-radius: 0.9rem;
   height: 100%;
 }
@@ -887,32 +886,38 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1;
-  height: 5rem !important;
+  flex: 1 1 0;
   overflow-y: auto;
   scrollbar-width: none;
-  border: 2px solid red;
   border-radius: 0.9rem;
+  padding: 0.5rem 0;
 }
-.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox {
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbanprogressbox, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbandonebox, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: var(--primary-bg);
+  background-color: var(--secondary-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
   border-radius: 0.9rem;
   padding: 0.8rem;
+  opacity: 1;
+  background-clip: padding-box;
+  border-radius: 0.9rem;
 }
-.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox h1 {
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbanprogressbox h1, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbandonebox h1, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox h1 {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--primary-text);
+  opacity: 1;
 }
-.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox p {
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbanprogressbox p, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbandonebox p, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox p {
   font-size: 0.8rem;
   font-weight: 400;
   color: var(--primary-text);
+  opacity: 1;
 }
-.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button {
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbanprogressbox button, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbandonebox button, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button {
+  opacity: 1;
   padding: 0.7rem 0.9rem;
   border-radius: 0.9rem;
   border: none;
@@ -925,7 +930,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
   transition: transform 0.2s ease;
   align-self: flex-end;
 }
-.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button:active {
+.anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbanprogressbox button:active, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbandonebox button:active, .anchor-kanbanboard-bg .kanbanboardapp .board .task-column .kanbanlist .kanbantodobox button:active {
   transform: scale(0.9);
 }
 

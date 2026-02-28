@@ -18,7 +18,8 @@ const startbutton = document.querySelector("#pomodoro-start");
 const pausebutton = document.querySelector("#pomodoro-pause");
 const resetbutton = document.querySelector("#pomodoro-reset");
 const changetheme = document.querySelector("#changetheme");
-const mainbox   = document.querySelector("main");
+const mainbox = document.querySelector("main");
+const kanbanbox = document.querySelector(".kanbantodobox");
 
 const anchorboxes = {
   todo: document.querySelector(".anchor-todo-bg"),
@@ -53,7 +54,7 @@ async function getWeatherInfo() {
       humidity: data.main.humidity,
       windspeed: data.wind.speed,
       weather: `${data.weather[0].description[0].toUpperCase()}${data.weather[0].description.slice(
-        1
+        1,
       )}`,
     };
     console.log(finaldata);
@@ -119,27 +120,26 @@ getWeatherInfo();
 let timerpomodoro = null;
 let isrunning = false;
 
-function pomodoroTimerstart(){
-  if(isrunning){
+function pomodoroTimerstart() {
+  if (isrunning) {
     return;
   }
   isrunning = true;
-  
+
   // Remove 'const' here - just assign to the outer variable
   timerpomodoro = setInterval(() => {
     let min = parseInt(minpomodoro.innerHTML);
     let sec = parseInt(secpomodoro.innerHTML);
-    
-    if(min === 0 && sec === 0){
-      if(titlepomodoro.innerHTML === "Work Session"){
+
+    if (min === 0 && sec === 0) {
+      if (titlepomodoro.innerHTML === "Work Session") {
         minpomodoro.innerHTML = "5";
         secpomodoro.innerHTML = "00";
         titlepomodoro.innerHTML = "Break Session";
         clearInterval(timerpomodoro);
         isrunning = false;
         return;
-      }
-      else{
+      } else {
         minpomodoro.innerHTML = "25";
         secpomodoro.innerHTML = "00";
         titlepomodoro.innerHTML = "Work Session";
@@ -147,23 +147,21 @@ function pomodoroTimerstart(){
         isrunning = false;
         return;
       }
-    }
-    else if(sec === 0){
+    } else if (sec === 0) {
       minpomodoro.innerHTML = min - 1;
       secpomodoro.innerHTML = "59";
-    }
-    else{
+    } else {
       secpomodoro.innerHTML = String(sec - 1).padStart(2, "0");
     }
-  }, 10); // Changed from 10ms to 1000ms (1 second)
+  }, 1000); // Changed from 10ms to 1000ms (1 second)
 }
 
-function pomodoroTimerpause(){
+function pomodoroTimerpause() {
   clearInterval(timerpomodoro);
   isrunning = false;
 }
 
-function pomodoroTimerreset(){
+function pomodoroTimerreset() {
   clearInterval(timerpomodoro);
   isrunning = false;
   minpomodoro.innerHTML = "25";
@@ -171,9 +169,8 @@ function pomodoroTimerreset(){
   titlepomodoro.innerHTML = "Work Session";
 }
 
-
 //exit button on click function
- function exitbutton_anchor(anchor, id, targetid, buttonexit) {
+function exitbutton_anchor(anchor, id, targetid, buttonexit) {
   try {
     anchor.style.positionAnchor = `--${id}`;
     anchor.id = targetid;
@@ -203,21 +200,25 @@ async function changeAnchor(anchor, id, targetid, buttonexit) {
     anchor.classList.add("fullscreen");
     const app = buttonexit.id.split("-")[0];
     console.log(app + "app");
-    if(app === "motivation"){
-      if(document.querySelector("#motivation-text").innerHTML === ""){
-      const quoteapi =  await fetch("https://api.api-ninjas.com/v2/quoteoftheday" , {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Api-Key": "P5c8z6P+Tt8xCsQME3nbYA==WVjmmWIIgrFxtLUF"
-        },
-      });
-      const quoteData = await quoteapi.json();
-      const quote = quoteData[0].quote;
-      const author = quoteData[0].author;
-      document.querySelector("#motivation-text").innerHTML =`"${quote}"`;
-      document.querySelector("#author-name").innerHTML = `-${author}`;
-    }}
+    if (app === "motivation") {
+      if (document.querySelector("#motivation-text").innerHTML === "") {
+        const quoteapi = await fetch(
+          "https://api.api-ninjas.com/v2/quoteoftheday",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Api-Key": "P5c8z6P+Tt8xCsQME3nbYA==WVjmmWIIgrFxtLUF",
+            },
+          },
+        );
+        const quoteData = await quoteapi.json();
+        const quote = quoteData[0].quote;
+        const author = quoteData[0].author;
+        document.querySelector("#motivation-text").innerHTML = `"${quote}"`;
+        document.querySelector("#author-name").innerHTML = `-${author}`;
+      }
+    }
     setTimeout(() => {
       document.querySelector(`.${app}app`).style.display = "grid";
     }, 100);
@@ -227,8 +228,6 @@ async function changeAnchor(anchor, id, targetid, buttonexit) {
     console.log(error);
   }
 }
-
-
 
 //pomodoro timer events
 startbutton.addEventListener("click", (e) => {
@@ -245,9 +244,6 @@ resetbutton.addEventListener("click", (e) => {
   e.stopPropagation();
   pomodoroTimerreset();
 });
-
-
-
 
 //exit button on click event using exit button function
 exitbuttons.forEach((button) => {
@@ -282,7 +278,7 @@ mainboxes.forEach((mainbox) => {
       anchor,
       anchor_id,
       anchor.id,
-      anchor.querySelector(".exitbutton")
+      anchor.querySelector(".exitbutton"),
     );
   });
 });
@@ -318,7 +314,7 @@ function saveTodos() {
 // Render todos to the DOM
 function renderTodos() {
   todoList.innerHTML = "";
-  
+
   if (todos.length === 0) {
     todoList.innerHTML = `
       <li style="
@@ -335,25 +331,25 @@ function renderTodos() {
     `;
     return;
   }
-  
+
   todos.forEach((todo, index) => {
     const li = document.createElement("li");
-    li.className = `todo-item${todo.completed ? ' completed' : ''}`;
-    
+    li.className = `todo-item${todo.completed ? " completed" : ""}`;
+
     li.innerHTML = `
       <div class="todo-text-wrapper">
         <span class="todo-text">${todo.text}</span>
-        ${todo.important ? '<span class="imp-badge">IMP</span>' : ''}
+        ${todo.important ? '<span class="imp-badge">IMP</span>' : ""}
       </div>
       <div class="todo-actions">
         <button class="edit-btn" data-index="${index}">✎</button>
         <button class="complete-btn" data-index="${index}">✓</button>
       </div>
     `;
-    
+
     todoList.appendChild(li);
   });
-  
+
   // Add event listeners to edit and complete buttons
   attachTodoEventListeners();
 }
@@ -362,12 +358,12 @@ function renderTodos() {
 function attachTodoEventListeners() {
   const editButtons = document.querySelectorAll(".edit-btn");
   const completeButtons = document.querySelectorAll(".complete-btn");
-  
-  editButtons.forEach(btn => {
+
+  editButtons.forEach((btn) => {
     btn.addEventListener("click", handleEdit);
   });
-  
-  completeButtons.forEach(btn => {
+
+  completeButtons.forEach((btn) => {
     btn.addEventListener("click", handleComplete);
   });
 }
@@ -375,18 +371,18 @@ function attachTodoEventListeners() {
 // Add new todo
 function addTodo() {
   const text = todoInput.value.trim();
-  
+
   if (text === "") {
     return;
   }
-  
+
   const newTodo = {
     id: Date.now(),
     text: text,
     important: todoImpCheckbox.checked,
-    completed: false
+    completed: false,
   };
-  
+
   todos.push(newTodo);
   saveTodos();
   renderTodos();
@@ -398,9 +394,9 @@ function addTodo() {
 function handleEdit(e) {
   const index = e.target.dataset.index;
   const todoItem = todos[index];
-  
+
   const newText = prompt("Edit your task:", todoItem.text);
-  
+
   if (newText !== null && newText.trim() !== "") {
     todos[index].text = newText.trim();
     saveTodos();
@@ -419,7 +415,6 @@ function handleComplete(e) {
   saveTodos();
   renderTodos();
 }
-
 
 // Event Listeners for Todo App
 todoAddBtn.addEventListener("click", addTodo);

@@ -1,77 +1,4 @@
- .kanban-top {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      h2{
-        text-align: center;
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      }
-      button{
-       position: absolute;
-       right: 5rem;
-       top: 0rem;
-       padding: 0.9rem 1rem;
-       border-radius: 0.9rem;
-       border: none;
-       outline: none;
-       font-size: 1rem;
-       font-weight: 600;
-       color: var(--primary-text);
-       background: var(--secondary-bg);
-       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);
-       transition: transform 0.2s ease;
-       &:hover {
-         transform: scale(1.1);
-       }
-
-       &:active {
-         transform: scale(0.98);
-       }
-      }
-
-    }
-
-    
-
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      padding: 1rem;
-      border: 2px solid red;
-      border-radius: 0.9rem;
-      height: 100%;
-      .task-column {
-         background: transparent;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        padding: 0.8rem;
-        border-radius: 0.9rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        height: 100%;
-        .kanbansectionhead{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.7rem;
-           flex-shrink: 0;
-        }
-        .kanbanlist{
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-         flex: 1;
-  overflow-y: scroll;
-  scrollbar-width: none;
-
-          border-radius: 0.9rem;
-        
-         .kanbantodobox{
+ .kanbantodobox{
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
@@ -106,7 +33,3 @@
             }
           }
          }
-        }
-      }
-
-    }

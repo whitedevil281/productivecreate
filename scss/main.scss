@@ -893,12 +893,12 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       padding: 1rem;
-      border: 2px solid red;
+     
       border-radius: 0.9rem;
       height: 100%;
       .task-column {
-         background: transparent;
-      backdrop-filter: blur(12px);
+       background: transparent;
+    backdrop-filter: blur(12px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         padding: 0.8rem;
         border-radius: 0.9rem;
@@ -906,6 +906,7 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
         flex-direction: column;
         gap: 0.8rem;
         height: 100%;
+        
         .kanbansectionhead{
           display: flex;
           justify-content: space-between;
@@ -915,34 +916,39 @@ main:has(#anchor-box-kanbanboard:hover) #kanbanboard-mainbox {
         }
         .kanbanlist{
           display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1 1 0; // Change from flex: 1
+  overflow-y: auto;
+  scrollbar-width: none;
+  
+  border-radius: 0.9rem;
+  padding: 0.5rem 0;
+         .kanbanprogressbox,.kanbandonebox,.kanbantodobox{
+          display: flex; 
           flex-direction: column;
           gap: 0.5rem;
-         flex: 1;
-         height: 5rem !important;
-        overflow-y: auto;
-       scrollbar-width: none;
-border: 2px solid red;
-          border-radius: 0.9rem;
-        
-         .kanbantodobox{
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          background-color: var(--primary-bg);
-          border-radius: 0.9rem;
+          background-color: var(--secondary-bg);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.188);          border-radius: 0.9rem;
           padding: 0.8rem;
+          opacity: 1;
+          background-clip: padding-box;
+          border-radius: 0.9rem;
 
           h1{
             font-size: 1.8rem;
             font-weight: 600;
             color: var(--primary-text);
+            opacity: 1;
           }
           p{
             font-size: 0.8rem;
             font-weight: 400;
             color: var(--primary-text);
+            opacity: 1;
           }
           button{
+            opacity: 1;
             padding: 0.7rem 0.9rem;
             border-radius: 0.9rem;
             border: none;
